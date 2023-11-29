@@ -1,0 +1,34 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using DataLayer.Entityes;
+@using Microsoft.AspNetCore.Identity;
+@using System;
+@model DataLayer.Entityes.Author;
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCKTYPE>
+<html>
+    <head>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="display: flex flex-direction: column; align-items: start">
+             <p>Firstname: @(Model.Name.Length > 0 ? Model.Name : "")</p>
+             <p>Lastname: @(Model.Surname.Length > 0 ? Model.Surname : "")</p>
+             <p>Fathersname: @(Model.FathersName.Length > 0 ? Model.FathersName : "")</p>
+             <p>BirthDate: @Model.BirthDate</p>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <a class="btn btn-primary" asp-controller="Author" asp-action="ChangeAuthorsData" role="button" style="min-width:100px">Change info</a>
+                <div><form asp-controller="Author" asp-action="RemoveAuthor" method="post"><button class="btn btn-primary" type="submit" style="min-width:100px">Delete current author</button></form></div>
+                <a class="btn btn-primary" asp-controller="Book" asp-action="BooksOfCurrentAuthor" role="button" style="min-width:100px">Show books of this author</a>
+                <a class="btn btn-primary" asp-controller="Author" asp-action="AuthorsList" role="button" style="min-width:100px">Show authors</a>
+            </div>    
+        </div>
+    </div>
+</body>
+</html>

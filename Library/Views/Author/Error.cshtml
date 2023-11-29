@@ -1,0 +1,23 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCKTYPE>
+<html>
+    <head>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+
+  <body>
+      <div style="display: flex;justify-content: center">
+            <h1>Error!!!</h1>
+      </div>
+       <div style="display: flex; align-items: center; gap: 5px;">
+           <a class="btn btn-primary" asp-controller="Author" asp-action="AuthorsList" role="button" style="min-width:100px">Show authors</a>
+           <a class="btn btn-primary" asp-controller="Book" asp-action="BooksList" role="button" style="min-width:100px">Show authors</a>
+       </div>  
+  </body>
+</html>

@@ -1,0 +1,30 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Library.Models.WhatBookWantChangeBindingModel
+
+<!DOCKTYPE>
+<html>
+    <head>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+
+  <body>
+      <div style="display: flex;justify-content: center">
+        <h3>Search book that you want to change</h3>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+          <div style="display: flex flex-direction: column; align-items: start">
+              <h1>Enter the surname and name of author you want to change!</h1>
+            <form asp-controller="Book" asp-action="ChangingBook" method="post"
+                      style="gap: 5px; display: flex; flex-direction: column; min-width: 50vw; width: 100%;">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+                <br />
+                <div asp-validation-summary="ModelOnly"></div>
+                <button type="submit">Search</button>
+            </form>
+          </div>
+      </div>
+  </body>
+</html>
