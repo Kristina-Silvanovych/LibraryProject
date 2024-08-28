@@ -25,7 +25,35 @@ namespace Library.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBook(AddBookBindingModel model)
+        public async Task<IActionResult> AddBook(Book model)
+        {
+            if (ModelState.IsValid)
+            {
+                var bookAlreadyExists = _bookService.ExistBook(model.Title);
+                if (bookAlreadyExists)
+                {
+                    ModelState.AddModelError(nameof(model.Title), "Book already exists");
+                    return BadRequest("Book already exists");
+                }
+
+                var newBook = new Book
+                {
+                    Title = model.Title,
+                    PageCount = model.PageCount,
+                    Genre = model.Genre,
+                    AuthorId = model.AuthorId
+                };
+
+                await _bookService.CreateBook(newBook);
+
+                return PartialView("_ShowAddedBookPartialView", newBook);
+            }
+
+            return BadRequest("Book already exists");
+        }
+
+        [HttpPost("without ajax")]
+        public async Task<IActionResult> AddBookSimple(AddBookBindingModel model)
         {
             if (ModelState.IsValid)
             {

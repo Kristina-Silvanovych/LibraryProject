@@ -1,0 +1,12 @@
+﻿@model DataLayer.Entityes.Book
+
+@if (Model != null && Model.Id > 0) 
+{
+    <div>
+        <p>Id: @Model.Id</p>
+        <p>Title: @Model.Title</p>
+        <p>Page Count: @Model.PageCount</p>
+        <p>Genre: @Model.Genre</p>
+        <hr style="border: 1px solid black; width:max-content">
+    </div>
+}

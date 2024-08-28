@@ -26,29 +26,30 @@
                                         <p>Name: @author.Name</p>
                                         <p>Surname: @author.Surname</p>
                                         <p>Fathersname: @author.FathersName</p>
-                                        <p>BirthDate: @author.BirthDate</p>
+                                        <p>BirthDate: @author.BirthDate.ToString("dd.MM.yyyy")</p>
                                         <hr style="border: 1px solid black;">
                               </div>
                 }
                 <p>
                    <a class="btn btn-primary" asp-controller="Author" asp-action="ChangingAuthor" role="button" style="min-width:100px">Search author for changing info about him</a>
+                <a class="btn btn-primary" asp-controller="Author" asp-action="AddAuthor" role="button" style="min-width:100px">Add author</a>
                    <a class="btn btn-primary" asp-controller="Book" asp-action="BooksList" role="button" style="min-width:100px">Show books</a>
                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBookModal">
                                    Add book
                    </button>
                    <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add book</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                              <partial name="_AddBookPartialView" model='new AddBookBindingModel()'/>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add book</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            <div class="modal-body">
+                                  <partial name="_AddBookPartialView" model='new AddBookBindingModel()'/>
+                                </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    </div>
                </p> 
              </div>
           </div>

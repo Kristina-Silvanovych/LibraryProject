@@ -1,4 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model Library.Models.AddBookBindingModel
 
 <!DOCKTYPE>
@@ -47,3 +47,77 @@
       </div>
   </body>
 </html>
+ *@
+
+                    @* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Library.Models.AddBookBindingModel
+
+<form asp-controller="Book" asp-action="AddBook" method="post">
+    <div class="modal-body">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+
+        <br />
+
+        <label asp-for="CountOfPages"></label>
+        <input asp-for="CountOfPages" class="form-control" />
+        <span asp-validation-for="CountOfPages" class="text-danger"></span>
+
+        <br />
+
+        <label asp-for="Genre"></label>
+        <select asp-for="Genre" class="form-control">
+            <option value=""> </option>
+            <option value="Жахи">Жахи</option>
+            <option value="Роман">Роман</option>
+            <option value="Казка">Казка</option>
+            <option value="Поезія">Поезія</option>
+            <option value="Сонет">Сонет</option>
+            <option value="Драма">Драма</option>
+        </select>
+        <span asp-validation-for="Genre" class="text-danger"></span>
+
+        <br />
+
+        <label asp-for="AuthorId"></label>
+        <input asp-for="AuthorId" class="form-control" />
+        <span asp-validation-for="AuthorId" class="text-danger"></span>
+
+        <br />
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" id="saveBookBtn">Add</button>
+    </div>
+</form> *@
+
+<form id="addBookForm" asp-controller="Book" asp-action="AddBook" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="Title" required>
+    </div>
+    <div class="mb-3">
+        <label for="pageCount" class="form-label">Page Count</label>
+        <input type="number" class="form-control" id="pageCount" name="PageCount" required>
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <select class="form-control" id="genre" name="Genre" required>
+            <option value="">Select a genre</option>
+            <option value="Жахи">Жахи</option>
+            <option value="Роман">Роман</option>
+            <option value="Казка">Казка</option>
+            <option value="Поезія">Поезія</option>
+            <option value="Сонет">Сонет</option>
+            <option value="Драма">Драма</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="authorId" class="form-label">Author ID</label>
+        <input type="number" class="form-control" id="authorId" name="AuthorId" required>
+    </div>
+    <button type="submit" class="btn btn-primary" id="saveBookBtn">Save</button>
+</form>

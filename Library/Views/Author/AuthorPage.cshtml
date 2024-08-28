@@ -20,8 +20,8 @@
         <div style="display: flex flex-direction: column; align-items: start">
              <p>Firstname: @(Model.Name.Length > 0 ? Model.Name : "")</p>
              <p>Lastname: @(Model.Surname.Length > 0 ? Model.Surname : "")</p>
-             <p>Fathersname: @(Model.FathersName.Length > 0 ? Model.FathersName : "")</p>
-             <p>BirthDate: @Model.BirthDate</p>
+             <p>Fathersname: @(Model.FathersName?.Length > 0 ? Model.FathersName : "-")</p>
+              <p>BirthDate: @Model.BirthDate.ToString("dd.MM.yyyy")</p>
             <div style="display: flex; align-items: center; gap: 5px;">
                 <a class="btn btn-primary" asp-controller="Author" asp-action="ChangeAuthorsData" role="button" style="min-width:100px">Change info</a>
                 <div><form asp-controller="Author" asp-action="RemoveAuthor" method="post"><button class="btn btn-primary" type="submit" style="min-width:100px">Delete current author</button></form></div>

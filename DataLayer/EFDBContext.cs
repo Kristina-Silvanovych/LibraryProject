@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +18,15 @@ namespace DataLayer
 
         public EFDBContext(DbContextOptions<EFDBContext> options) : base(options) { }
 
-        //For Migrations
+        // For Migrations
         public class EFDBContextFactory : IDesignTimeDbContextFactory<EFDBContext>
         {
             public EFDBContext CreateDbContext(string[] args)
             {
                 var optionsBuilder = new DbContextOptionsBuilder<EFDBContext>();
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = BooksDB;Integrated Security=True;TrustServerCertificate=True", b => b.MigrationsAssembly("DataLayer"));
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LibraryDB;Integrated Security=True;TrustServerCertificate=True", b => b.MigrationsAssembly("DataLayer"));
                 return new EFDBContext(optionsBuilder.Options);
             }
         }
-
     }
 }

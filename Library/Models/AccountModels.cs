@@ -12,13 +12,14 @@ namespace Library.Models
         public string? Name { get; set; }
         [Display(Name = "Surname")]
         [Required(ErrorMessage = "Field must be set!")]
-        public string? Surname { get; set; }
+        public string Surname { get; set; } = default!;
 
         [Display(Name = "FathersName")]
         public string? FathersName { get; set; }
 
         [Display(Name = "BirthDate")]
         [Required(ErrorMessage = "Field must be set!")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
     }
 

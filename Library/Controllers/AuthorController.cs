@@ -42,7 +42,7 @@ namespace Library.Controllers
                     Name = model.Name,
                     Surname = model.Surname,
                     FathersName = model.FathersName,
-                    BirthDate = model.BirthDate
+                    BirthDate = model.BirthDate.Date
                 };
                 await _authorService.CreateAuthor(newAuthor);
                 return RedirectToAction("Index", "Home");
